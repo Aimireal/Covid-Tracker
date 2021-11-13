@@ -7,14 +7,14 @@ const Navbar = () => {
             <Link to='/'>
                 <h3 className='text-3xl font-normal'>
                     <span className='font-semibold'>
-                        Covid
+                        COVID-Tracker
                     </span>ata{" "}
                     <i className='fas fa-viruses'/>
                 </h3>
             </Link>
 
             <p className='text-sm font-light mt-1'>
-                Testing Text
+                All in one dashboard for statistics
             </p>
         </div>
     )
