@@ -8,7 +8,7 @@ const Navbar = () => {
                 <h3 className='text-3xl font-normal'>
                     <span className='font-semibold'>
                         COVID-Tracker
-                    </span>ata{" "}
+                    </span>{" "}
                     <i className='fas fa-viruses'/>
                 </h3>
             </Link>
