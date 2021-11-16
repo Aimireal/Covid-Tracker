@@ -11,7 +11,7 @@ const Footer = () => {
           rel='noreferrer'
           className='font-bold'
         >
-          Dylan
+          Dylan Hudson
         </a>
         , with data fetched from the{" "}
         <a
