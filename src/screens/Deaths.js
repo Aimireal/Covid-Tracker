@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect }  from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Bar } from 'react-chartjs-2'
@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 import numeral from 'numeral'
 import Loading from '../components/Loading'
 
-const Cases = () => {
+const Deaths = () => {
     const [loading, setLoading] = useState(false)
     const [dataError, setDataError] = useState(null)
     const [chartData, setChartData] = useState({})
@@ -141,4 +141,4 @@ const Cases = () => {
     )
 }
 
-export default Cases
+export default Deaths
