@@ -37,7 +37,7 @@ const Deaths = () => {
                 data: { data },
                 } = await axios.get(
                     `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=overview&structure={"date":"date", "newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","cumDeaths28DaysByPublishDate":"cumDeaths28DaysByPublishDate"}`
-                );
+                )
             
             setTableData(data.slice(0, 90))
             const latestMonth = data.slice(0, 90).reverse()

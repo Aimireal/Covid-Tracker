@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { Bar } from "react-chartjs-2";
-import dayjs from "dayjs";
-import numeral from "numeral";
-import Loading from "../components/Loading";
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { Bar } from 'react-chartjs-2'
+import dayjs from 'dayjs'
+import numeral from 'numeral'
+import Loading from '../components/Loading'
 
 const Region = ({ match }) => {
-    const [loading, setLoading] = useState(false);
-    const [dataError, setDataError] = useState(null);
-    const [caseChartData, setCaseChartData] = useState({});
-    const [deathChartData, setDeathChartData] = useState({});
-    const [tableData, setTableData] = useState([]);
-    const [regionName, setRegionName] = useState("");
+    const [loading, setLoading] = useState(false)
+    const [dataError, setDataError] = useState(null)
+    const [caseChartData, setCaseChartData] = useState({})
+    const [deathChartData, setDeathChartData] = useState({})
+    const [tableData, setTableData] = useState([])
+    const [regionName, setRegionName] = useState("")
 
-    const regionId = match.params.id;
+    const regionId = match.params.id
 
     const caseChartOptions = {
         scales: {
@@ -27,7 +27,7 @@ const Region = ({ match }) => {
             },
         ],
         },
-    };
+    }
 
     const deathChartOptions = {
         scales: {
@@ -40,33 +40,33 @@ const Region = ({ match }) => {
             },
         ],
         },
-    };
+    }
 
     const fetchData = async () => {
-        setLoading(true);
-        setDataError(null);
+        setLoading(true)
+        setDataError(null)
 
         try {
-        let dates = [];
-        let cases = [];
-        let deaths = [];
+        let dates = []
+        let cases = []
+        let deaths = []
 
         const {
             data: { data },
         } = await axios.get(
             `https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=utla;areaCode=${regionId}&structure={"date":"date","newCasesByPublishDate":"newCasesByPublishDate","newDeaths28DaysByPublishDate":"newDeaths28DaysByPublishDate","region":"areaName","regionId":"areaCode"}`
-        );
+        )
 
         if (data) {
-            setRegionName(data[0].region);
-            setTableData(data.slice(0, 90));
-            const latestMonth = data.slice(0, 90).reverse();
+            setRegionName(data[0].region)
+            setTableData(data.slice(0, 90))
+            const latestMonth = data.slice(0, 90).reverse()
 
             latestMonth.forEach((day) => {
-            dates.push(dayjs(day.date).format("DD/MM/YYYY"));
-            cases.push(day.newCasesByPublishDate);
-            deaths.push(day.newDeaths28DaysByPublishDate);
-            });
+            dates.push(dayjs(day.date).format("DD/MM/YYYY"))
+            cases.push(day.newCasesByPublishDate)
+            deaths.push(day.newDeaths28DaysByPublishDate)
+            })
 
             setCaseChartData({
             labels: dates,
@@ -77,7 +77,7 @@ const Region = ({ match }) => {
                 backgroundColor: "#00A9C0",
                 },
             ],
-            });
+            })
 
             setDeathChartData({
             labels: dates,
@@ -88,25 +88,24 @@ const Region = ({ match }) => {
                 backgroundColor: "#D67B49",
                 },
             ],
-            });
+            })
 
-            setLoading(false);
+            setLoading(false)
         } else {
-            setLoading(false);
-            setDataError("Error: Failed to fetch regional data");
+            setLoading(false)
+            setDataError("Error: Failed to fetch regional data")
         }
 
-        //
         } catch (error) {
-        setLoading(false);
-        console.error(error);
-        setDataError("Error: Failed to fetch regional data");
+        setLoading(false)
+        console.error(error)
+        setDataError("Error: Failed to fetch regional data")
         }
-    };
+    }
 
     useEffect(() => {
-        fetchData();
-    }, );
+        fetchData()
+    }, )
 
     return (
         <div
@@ -114,9 +113,8 @@ const Region = ({ match }) => {
         style={{ maxWidth: "1000px" }}
         >
         <div className='flex  justify-between mt-3'>
-            <Link
-            to={"/"}
-            className=' bg-lavender1 hover:bg-gray-400 ease-in-out duration-100 font-semibold text-lg px-3 py-1 rounded'
+            <Link to={"/"}
+                className=' bg-lavender1 hover:bg-gray-400 ease-in-out duration-100 font-semibold text-lg px-3 py-1 rounded'
             >
             <i className='fas fa-arrow-alt-circle-left'></i> Dashboard
             </Link>
@@ -205,7 +203,7 @@ const Region = ({ match }) => {
             </div>
         )}
         </div>
-    );
-};
+    )
+}
 
-export default Region;
+export default Region

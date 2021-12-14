@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../components/Card'
 import Regions from '../components/Regions'
 
-const hStyle = { color: 'white' };
+const hStyle = { color: 'white' }
 const Dashboard = () => {
     return (
         <div className='mx-auto font-source-sans'>

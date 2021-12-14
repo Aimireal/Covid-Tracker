@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import loading from "./loading.gif";
+import loading from './loading.gif'
 
 const Loading = ({ type }) => {
     return (
