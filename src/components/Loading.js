@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
+import loading from "./loading.gif";
 
 const Loading = ({ type }) => {
     return (
         <Fragment>
             <img
-                src={'/loading.gif'}
+                src={'loading'}
                 alt='Loading...'
                 style={{ width: '100px', margin: 'auto', display: 'block' }}
             />
