@@ -12,7 +12,7 @@ with Tailwind CSS for the design elements.
 ## Tech Stack
 Javascript, React, TailwindCSS
 
-![alt_text](https://github.com/Aimireal/React-Covid-Tracker/public/images/tracker.png)
+![alt_text](https://github.com/Aimireal/React-Covid-Tracker/blob/master/public/images/tracker.png)
 
 ## To Run:
 Link in the about or go to [here](https://react-covid-tracker.vercel.app)
